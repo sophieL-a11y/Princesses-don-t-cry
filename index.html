@@ -9,45 +9,68 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Princesses don&#39;t cry.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Princesses don&#39;t cry" startnode="1" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="7610FC46-01FB-44ED-A8A1-1F47D1D9D849" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
-tw-story[tags~="start"] {
- background-image:url("start.gif");
- background-size:cover;
+<tw-storydata name="Princesses don&#39;t cry" startnode="1" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="7610FC46-01FB-44ED-A8A1-1F47D1D9D849" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* 1. FORCE THE BACKGROUND TO SHOW */
+/* We target the body and use !important to override Harlowe's default black */
+body:has(tw-passage[tags~="start"]) { background-image: url("start.gif") !important; }
+body:has(tw-passage[tags~="slob"]) { background-image: url("slob.gif") !important; }
+body:has(tw-passage[tags~="school"]) { background-image: url("school.gif") !important; }
+body:has(tw-passage[tags~="headphone"]) { background-image: url("headphone.gif") !important; }
+body:has(tw-passage[tags~="kitchen"]) { background-image: url("kitchen.gif") !important; }
+body:has(tw-passage[tags~="scroll"]) { background-image: url("scroll.gif") !important; }
+body:has(tw-passage[tags~="mom"]) { background-image: url("mom.png") !important; }
+body:has(tw-passage[tags~="cry"]) { background-image: url("cry.gif") !important; }
+
+body {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-color: black; /* Fallback while loading */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents overall page scrolling */
 }
 
-tw-story[tags~="slob"] {
- background-image:url("slob.gif");
- background-size:cover;
+/* 2. MAKE THE STORY CONTAINER TRANSPARENT */
+tw-story {
+    background: transparent !important;
+    width: 100%;
+    height: 100vh;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-tw-story[tags~="school"] {
- background-image:url("school.gif");
- background-size:cover;
+/* 3. ALIGN TEXT TO THE LEFT & AUTO-FIT HEIGHT */
+tw-passage {
+    background: transparent !important; /* No box behind text */
+    color: white;
+    
+    /* Alignment */
+    text-align: left; 
+    margin-left: 10%; /* Provides a margin from the left edge */
+    margin-top: 5vh;
+    width: 80%;
+    
+    /* The "No-Scroll" Scaling */
+    /* Adjust '2.5vh' if the text still feels too big or small */
+    font-size: clamp(16px, 2.5vh, 28px); 
+    line-height: 1.4;
+    
+    /* Prevent overflow */
+    max-height: 90vh;
+    overflow: hidden;
 }
 
-tw-story[tags~="headphone"] {
- background-image:url("headphone.gif");
- background-size:cover;
+/* 4. HIDE SIDEBAR & UI ELEMENTS */
+tw-sidebar {
+    display: none !important;
 }
 
-tw-story[tags~="kitchen"] {
- background-image:url("kitchen.gif");
- background-size:cover;
-}
-
-tw-story[tags~="scroll"] {
- background-image:url("scroll.gif");
- background-size:cover;
-}
-
-tw-story[tags~="mom"] {
- background-image:url("mom.png");
- background-size:cover;
-}
-
-tw-story[tags~="cry"] {
- background-image:url("cry.gif");
- background-size:cover;
+/* Ensure images don't push text off screen */
+tw-passage img {
+    max-height: 40vh;
+    width: auto;
+    display: block;
+    margin: 10px 0; /* Aligns images to the left with the text */
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="start" color="blue"></tw-tag><tw-tag name="slob" color="yellow"></tw-tag><tw-tag name="school" color="purple"></tw-tag><tw-tag name="headphone" color="blue"></tw-tag><tw-tag name="scroll" color="purple"></tw-tag><tw-tag name="kitchen" color="orange"></tw-tag><tw-tag name="cry" color="red"></tw-tag><tw-tag name="mom" color="purple"></tw-tag><tw-passagedata pid="1" name="Untitled Passage" tags="start" position="575,300" size="100,100">(enchant: ?page, (css: &quot;background-image: url(&#39;start.gif&#39;); background-size: cover; background-attachment: fixed; background-position: center;&quot;))
 
 (text-color:black)
